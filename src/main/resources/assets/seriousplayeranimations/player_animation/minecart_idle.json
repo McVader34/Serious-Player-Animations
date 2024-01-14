@@ -1,0 +1,53 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"minecart_idle": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"head": {
+					"position": {
+						"vector": [0, 0, 2]
+					}
+				},
+				"torso": {
+					"position": {
+						"vector": [0, 0, 2]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"vector": [-64.46949, 11.31255, 5.35254]
+					},
+					"position": {
+						"vector": [0, 0, 2]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"vector": [-64.46949, -11.31255, -5.35254]
+					},
+					"position": {
+						"vector": [0, 0, 2]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"vector": [-89.70638, 12.19908, 2.74715]
+					},
+					"position": {
+						"vector": [0, 0, 3]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"vector": [-89.30716, -16.88547, -4.6653]
+					},
+					"position": {
+						"vector": [0, 0, 3]
+					}
+				}
+			}
+		}
+	}
+}

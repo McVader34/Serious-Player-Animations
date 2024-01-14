@@ -1,0 +1,90 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"minecart_sword_attack": {
+			"animation_length": 0.5,
+			"bones": {
+				"head": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0.5, 4]
+						},
+						"0.25": {
+							"vector": [0, 0.5, 0]
+						}
+					}
+				},
+				"torso": {
+					"rotation": {
+						"0.0": {
+							"vector": [-10.34527, 14.76689, -2.66399]
+						},
+						"0.25": {
+							"vector": [15.50409, -14.47751, -3.96713]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 4]
+						},
+						"0.25": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": {
+							"vector": [-165.68644, -1.3831, -34.71669]
+						},
+						"0.25": {
+							"vector": [7.17433, -2.77936, -44.62553]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [2, 1, 4]
+						},
+						"0.25": {
+							"vector": [4, 0, -1]
+						}
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": {
+							"vector": [-12.5, 0, -15]
+						},
+						"0.25": {
+							"vector": [22.5, 0, -15]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 4]
+						},
+						"0.25": {
+							"vector": [0, 0, 2]
+						}
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"vector": [-89.70638, 12.19908, 2.74715]
+					},
+					"position": {
+						"vector": [0, 0, 3]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"vector": [-89.30716, -16.88547, -4.6653]
+					},
+					"position": {
+						"vector": [0, 0, 3]
+					}
+				}
+			}
+		}
+	}
+}
