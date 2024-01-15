@@ -43,11 +43,14 @@ import static dev.kosmx.playerAnim.api.TransformType.POSITION;
 import static dev.kosmx.playerAnim.api.TransformType.ROTATION;
 import static dev.kosmx.playerAnim.core.util.Ease.LINEAR;
 import static java.lang.Math.*;
+import static net.mcvader.seriousplayeranimations.SeriousPlayerAnimations.LOGGER;
 import static net.minecraft.item.Items.*;
 import static net.minecraft.util.Hand.MAIN_HAND;
 
 @Mixin(AbstractClientPlayerEntity.class)
 public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implements IExampleAnimatedPlayer, torsoPosGetter {
+
+
 
     @Shadow
     public abstract boolean isCreative();
@@ -186,6 +189,7 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
     @Unique
     public KeyframeAnimation boat1 = null;
 
+
     @Unique
     public Vec3f torsoPos = new Vec3f(0, 0, 0);
 
@@ -199,6 +203,10 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
 
     @Unique
     public KeyframeAnimation currentAnimation = null;
+    @Unique
+    public KeyframeAnimation prevAnimation = null;
+    @Unique
+    public KeyframeAnimation prevJumpingAnimation = null;
 
     @Unique
     public KeyframeAnimation.AnimationBuilder builder = null;
@@ -331,7 +339,16 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
     public String blockStateString = "";
     @Unique
     public String boatString = "";
-
+    @Unique
+    public int flychecker = 0;
+    @Unique
+    public double vyfly = 0;
+    @Unique
+    public boolean isJumping = false;
+    @Unique
+    public String prevJumpingAnimationId = "";
+    @Unique
+    float prevJumpingAnimationSpeed = 0;
 
 
     @Unique
@@ -383,131 +400,139 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
         isMovingBackwards = movementVector.length() > 0 && movementVector.dot(lookVector) < 0;
 
 
-        if (isOnGround()) {
-            //walking
-            if (moveSpeed < 0.23 && moveSpeed > 0 && !isMovingBackwards && !isInSneakingPose()) {
-                if (((9 / 0.22) * moveSpeed) > 1) {
-                    animationSpeed = (float) ((9 / 0.22) * moveSpeed);
-                } else {
-                    animationSpeed = 2;
-                }
-                currentAnimation = walking;
-                currentAnimationId = "walking";
-                fadeTime = 7;
-                priority = 0;
 
-                //walking backwards
-            } else if (isMovingBackwards && !isInSneakingPose()) {
-                if (((4 / 0.22) * moveSpeed) > 1) {
-                    animationSpeed = (float) ((4 / 0.22) * moveSpeed);
-                } else {
-                    animationSpeed = 2;
-                }
-                if (vy > 0) {
-                    animationSpeed = 0.1F;
-                }
-                currentAnimation = walking_backwards;
-                currentAnimationId = "walking_backwards";
-                fadeTime = 7;
-                priority = 0;
+        //walking
+        if (moveSpeed < 0.23 && moveSpeed > 0 && !isMovingBackwards && !isInSneakingPose()) {
+            if (((13 / 0.22) * moveSpeed) > 1) {
+                animationSpeed = (float) ((13 / 0.22) * moveSpeed);
+            } else {
+                animationSpeed = 2;
+            }
+            currentAnimation = walking;
+            currentAnimationId = "walking";
+            fadeTime = 7;
+            priority = 0;
 
-                //running
-            } else if (moveSpeed > 0.23 && isSprinting() && !isMovingBackwards && !isInSneakingPose()) {
-                if (((3.7 / 0.28) * moveSpeed) > 1) {
-                    animationSpeed = (float) ((3.7 / 0.28) * moveSpeed);
-                } else {
-                    animationSpeed = 1;
-                }
-                currentAnimation = running;
-                currentAnimationId = "running";
-                fadeTime = 2;
-                priority = 0;
+            //walking backwards
+        } else if (isMovingBackwards && !isInSneakingPose()) {
+            if (((4 / 0.22) * moveSpeed) > 1) {
+                animationSpeed = (float) ((4 / 0.22) * moveSpeed);
+            } else {
+                animationSpeed = 2;
+            }
+            if (vy > 0) {
+                animationSpeed = 0.1F;
+            }
+            currentAnimation = walking_backwards;
+            currentAnimationId = "walking_backwards";
+            fadeTime = 7;
+            priority = 0;
 
-
-                //standing & turning
-            } else if (moveSpeed == 0 && !isInSneakingPose()) {
-                currentAnimation = idle_standing;
-                currentAnimationId = "idle_standing";
-                if (prevAnimationId.equals("idle_sneak")
-                        || prevAnimationId.equals("walking_sneak")
-                        || prevAnimationId.equals("jump")
-                        ) {
-
-                    fadeTime = 1;
-                } else {
-                    fadeTime = 10;
-                }
-                animationSpeed = 1f;
-                priority = 0;
-                if (turn < 0) {
-                    currentAnimation = turn_left;
-                    currentAnimationId = "turn_left";
-                    if ((abs((((float) 1 / 2) * turn)) > 5)) {
-                        animationSpeed = 2f;
-                    } else {
-                        animationSpeed = abs((((float) 1 / 2) * turn));
-                    }
-
-                } else if (turn > 0) {
-                    currentAnimation = turn_right;
-                    currentAnimationId = "turn_right";
-                    if ((abs((((float) 1 / 2) * turn)) > 5)) {
-                        animationSpeed = 2f;
-                    } else {
-                        animationSpeed = abs((((float) 1 / 2) * turn));
-                    }
-
-
-                }
-                //sneaking
-            } else if (isInSneakingPose() && moveSpeed == 0 && !isMovingBackwards) {
-                currentAnimation = idle_sneak;
-                currentAnimationId = "idle_sneak";
+            //running
+        } else if (moveSpeed > 0.23 && isSprinting() && !isMovingBackwards && !isInSneakingPose()) {
+            if (((3.7 / 0.28) * moveSpeed) > 1) {
+                animationSpeed = (float) ((3.7 / 0.28) * moveSpeed);
+            } else {
                 animationSpeed = 1;
-                if (prevAnimationId.equals("walking_sneak") || prevAnimationId.equals("walking_sneak_backwards")) {
-                    fadeTime = 10;
-                } else {
-                    fadeTime = 1;
-                }
-                priority = 0;
-            } else if (isInSneakingPose() && moveSpeed > 0 && !isMovingBackwards) {
-                currentAnimation = walking_sneak;
-                currentAnimationId = "walking_sneak";
-                animationSpeed = (float) ((2 / 0.06) * moveSpeed);
-                if (animationSpeed < 1) {
-                    animationSpeed = 1;
-                }
-                if (prevAnimationId.equals("idle_sneak") || prevAnimationId.equals("walking_sneak_backwards")) {
-                    fadeTime = 7;
-                } else {
-                    fadeTime = 1;
-                }
-                priority = 0;
+            }
+            currentAnimation = running;
+            currentAnimationId = "running";
+            fadeTime = 2;
+            priority = 0;
 
-            } else if (isInSneakingPose() && moveSpeed > 0 && isMovingBackwards) {
-                currentAnimation = walking_sneak_backwards;
-                currentAnimationId = "walking_sneak_backwards";
-                animationSpeed = (float) ((2 / 0.06) * moveSpeed);
-                if (animationSpeed < 1) {
-                    animationSpeed = 1;
-                }
-                if (prevAnimationId.equals("idle_sneak")
-                        || prevAnimationId.equals("walking_sneak")) {
-                    fadeTime = 7;
+
+            //standing & turning
+        } else if (moveSpeed == 0 && !isInSneakingPose()) {
+            currentAnimation = idle_standing;
+            currentAnimationId = "idle_standing";
+            if (prevAnimationId.equals("idle_sneak")
+                    || prevAnimationId.equals("walking_sneak")
+                    || prevAnimationId.equals("jump")
+                    ) {
+
+                fadeTime = 1;
+            } else {
+                fadeTime = 10;
+            }
+            animationSpeed = 1f;
+            priority = 0;
+            if (turn < 0) {
+                currentAnimation = turn_left;
+                currentAnimationId = "turn_left";
+                if ((abs((((float) 1 / 2) * turn)) > 5)) {
+                    animationSpeed = 2f;
                 } else {
-                    fadeTime = 1;
+                    animationSpeed = abs((((float) 1 / 2) * turn));
                 }
-                priority = 0;
+
+            } else if (turn > 0) {
+                currentAnimation = turn_right;
+                currentAnimationId = "turn_right";
+                if ((abs((((float) 1 / 2) * turn)) > 5)) {
+                    animationSpeed = 2f;
+                } else {
+                    animationSpeed = abs((((float) 1 / 2) * turn));
+                }
+
 
             }
+            //sneaking
+        } else if (isInSneakingPose() && moveSpeed == 0 && !isMovingBackwards) {
+            currentAnimation = idle_sneak;
+            currentAnimationId = "idle_sneak";
+            animationSpeed = 1;
+            if (prevAnimationId.equals("walking_sneak") || prevAnimationId.equals("walking_sneak_backwards")) {
+                fadeTime = 10;
+            } else {
+                fadeTime = 1;
+            }
+            priority = 0;
+        } else if (isInSneakingPose() && moveSpeed > 0 && !isMovingBackwards) {
+            currentAnimation = walking_sneak;
+            currentAnimationId = "walking_sneak";
+            animationSpeed = (float) ((2 / 0.06) * moveSpeed);
+            if (animationSpeed < 1) {
+                animationSpeed = 1;
+            }
+            if (prevAnimationId.equals("idle_sneak") || prevAnimationId.equals("walking_sneak_backwards")) {
+                fadeTime = 7;
+            } else {
+                fadeTime = 1;
+            }
+            priority = 0;
+
+        } else if (isInSneakingPose() && moveSpeed > 0 && isMovingBackwards) {
+            currentAnimation = walking_sneak_backwards;
+            currentAnimationId = "walking_sneak_backwards";
+            animationSpeed = (float) ((2 / 0.06) * moveSpeed);
+            if (animationSpeed < 1) {
+                animationSpeed = 1;
+            }
+            if (prevAnimationId.equals("idle_sneak")
+                    || prevAnimationId.equals("walking_sneak")) {
+                fadeTime = 7;
+            } else {
+                fadeTime = 1;
+            }
+            priority = 0;
+
         }
+
 
         //jumping
         if (vy > 0 && !isOnGround()) {
-            fadeTime = 7;
-            animationSpeed = 1;
+            //fadeTime = 5;
+            if (currentAnimationId.equals("walking")) {
+                animationSpeed = 4;
+            } else {
+                animationSpeed = 1;
+            }
+            prevJumpingAnimationId = currentAnimationId;
+            prevJumpingAnimation = currentAnimation;
+            prevJumpingAnimationSpeed = animationSpeed;
+
             priority = 0;
-            if (jumpSeq % 2 == 0) {
+            /*if (jumpSeq % 2 == 0) {
                 if (isInSneakingPose()){
                     currentAnimation = jump_sneak;
                     currentAnimationId = "jump_sneak";
@@ -531,7 +556,44 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
             } else {
                 currentAnimation = jump_sneak2;
                 currentAnimationId = "jump_sneak";
+            }*/
+        }
+
+        //flying
+        vyfly = (double)Math.round(vy * 1000d) / 1000d;
+        if ((vyfly == 0.0 || vyfly == 0.375 || vyfly == -0.375) && !isOnGround() && !isInsideWaterOrBubbleColumn()) {
+            flychecker++;
+            if (flychecker > 10) {
+                currentAnimation = idle_creative_flying;
+                currentAnimationId = "idle_creative_flying";
+                fadeTime = 5;
+                animationSpeed = 1;
+                priority = 0;
+
             }
+
+        } else if (vyfly < -0.375 || vyfly > 0.375) {
+            flychecker = 0;
+        }
+
+        LOGGER.info(currentAnimationId);
+        LOGGER.info(String.valueOf(vyfly));
+
+
+        //falling
+        if (vy < -0.6 && !hasVehicle() && !isOnGround()) {
+            currentAnimation = falling;
+            currentAnimationId = "falling";
+            fadeTime = 8;
+            animationSpeed = 1;
+            priority = 0;
+        } else if (!isOnGround()) {
+            if (currentAnimationId.equals("walking")) {
+                animationSpeed = 4;
+            } else {
+                animationSpeed = 1;
+            }
+            priority = 0;
         }
 
         //climbing
@@ -762,14 +824,8 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
             }
         }
 
-        //falling
-        if (vy < -0.5 && !hasVehicle()) {
-            currentAnimation = falling;
-            currentAnimationId = "falling";
-            fadeTime = 7;
-            animationSpeed = 1;
-            priority = 0;
-        }
+
+
 
         //elytra
         if (isFallFlying()) {
@@ -801,6 +857,7 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
             animationSpeed = 1.5f;
             priority = 1;
             currentAnimationId = "sword_attack";
+
             if (swordSeq % 2 == 0) {
                 if (isInSneakingPose()) {
                     currentAnimation = sword_attack_sneak;
@@ -1072,12 +1129,19 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
             modifyId = "";
         }
 
+
+
         if (!prevModifyId.isEmpty()) {
             fadeTime = 0;
         }
 
         if (animationSpeed != prevAnimationSpeed) {
-            animationContainer.removeModifier(0);
+            try {
+                animationContainer.removeModifier(0);
+            } catch (Exception e) {
+                animationSpeed = 1;
+            }
+
             animationContainer.addModifierBefore(new SpeedModifier(animationSpeed));
             prevAnimationSpeed = animationSpeed;
         }
@@ -1093,9 +1157,11 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
             animationContainer.replaceAnimationWithFade(AbstractFadeModifier.standardFadeIn(fadeTime, LINEAR), new KeyframeAnimationPlayer(currentAnimation));
 
             prevAnimationId = currentAnimationId;
+            prevAnimation = currentAnimation;
             prevModifyId = modifyId;
             prevPriority = priority;
             modified = true;
+
             if (currentAnimationId.equals("sword_attack")) {
                 swordSeq++;
             }
