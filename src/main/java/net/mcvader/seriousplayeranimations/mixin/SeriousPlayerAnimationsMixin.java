@@ -43,7 +43,6 @@ import static dev.kosmx.playerAnim.api.TransformType.POSITION;
 import static dev.kosmx.playerAnim.api.TransformType.ROTATION;
 import static dev.kosmx.playerAnim.core.util.Ease.LINEAR;
 import static java.lang.Math.*;
-import static net.mcvader.seriousplayeranimations.SeriousPlayerAnimations.LOGGER;
 import static net.minecraft.item.Items.*;
 import static net.minecraft.util.Hand.MAIN_HAND;
 
@@ -216,7 +215,8 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
 
 
 
-        PlayerAnimationAccess.getPlayerAnimLayer((AbstractClientPlayerEntity) (Object) this).addAnimLayer(2000, modAnimationContainer);
+        PlayerAnimationAccess.getPlayerAnimLayer((AbstractClientPlayerEntity) (Object) this).addAnimLayer(500, modAnimationContainer);
+
         sword_attack = PlayerAnimationRegistry.getAnimation(new Identifier("seriousplayeranimations", "sword_attack"));
         sword_attack2 = PlayerAnimationRegistry.getAnimation(new Identifier("seriousplayeranimations", "sword_attack2"));
         waving = PlayerAnimationRegistry.getAnimation(new Identifier("seriousplayeranimations", "waving"));
@@ -370,9 +370,8 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
     }
 
 
-    @Override
-    public void tick() {
-        super.tick();
+    @Inject(method = "tick", at = @At("TAIL"))
+    public void tick(CallbackInfo ci) {
         animate();
     }
 
@@ -576,8 +575,8 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
             flychecker = 0;
         }
 
-        LOGGER.info(currentAnimationId);
-        LOGGER.info(String.valueOf(vyfly));
+//        LOGGER.info(currentAnimationId);
+//        LOGGER.info(String.valueOf(vyfly));
 
 
         //falling
