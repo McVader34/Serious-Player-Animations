@@ -3,14 +3,14 @@
   "id": "seriousplayeranimations",
   "version": "${version}",
 
-  "name": "McVader's Serious Player Animations",
+  "name": "Serious Player Animations",
   "description": "This mod adds cool animations to the player.",
   "authors": [
     "McVader"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "homepage": "https://modrinth.com/user/McVader",
+    "sources": "https://github.com/McVader34/Serious-Player-Animations"
   },
 
   "license": "MIT",
@@ -22,6 +22,9 @@
       "net.mcvader.seriousplayeranimations.SeriousPlayerAnimations"
     ],
     "client": [
+    ],
+    "modmenu": [
+      "net.mcvader.seriousplayeranimations.config.ModMenuConfig"
     ]
   },
   "mixins": [
@@ -33,7 +36,8 @@
     "fabric": "*",
     "minecraft": ">=1.19.3",
     "java": ">=17",
-    "player-animator": ">=0.3"
+    "player-animator": ">=0.3",
+    "cloth-config": ">=11.0.0"
   },
   "suggests": {
     "another-mod": "*"
@@ -41,6 +45,11 @@
   "custom": {
     "loom:injected_interfaces": {
       "net/minecraft/client/network/AbstractClientPlayerEntity": ["net/mcvader/seriousplayeranimations/torsoPosGetter"]
+      },
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/Z6jJFxZAUS"
+      }
     }
   }
 }

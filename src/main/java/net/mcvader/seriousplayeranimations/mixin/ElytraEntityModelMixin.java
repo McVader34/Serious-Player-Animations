@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
+
 @Mixin(ElytraEntityModel.class)
 public abstract class ElytraEntityModelMixin <T extends LivingEntity>  extends AnimalModel<T> implements torsoPosGetter {
 
@@ -28,6 +29,8 @@ public abstract class ElytraEntityModelMixin <T extends LivingEntity>  extends A
     @Shadow protected abstract Iterable<ModelPart> getBodyParts();
 
     @Shadow protected abstract Iterable<ModelPart> getHeadParts();
+
+
 
     /**
      * @author McVader

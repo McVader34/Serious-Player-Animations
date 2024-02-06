@@ -6,4 +6,7 @@ public interface torsoPosGetter {
 
     Vec3f getTorsoPos();
 
+    Vec3f getTorsoRotation();
+
 }
+

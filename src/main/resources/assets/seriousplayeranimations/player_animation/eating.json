@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"eating_right": {
+		"eating": {
 			"loop": true,
 			"animation_length": 0.25,
 			"bones": {
@@ -20,7 +20,12 @@
 				},
 				"rightArm": {
 					"rotation": {
-						"vector": [-86.21838, -39.96824, -2.60617]
+						"vector": [0, 0, 0]
+					}
+				},
+				"rightItem": {
+					"rotation": {
+						"vector": [0, 2.5, 0]
 					}
 				}
 			}
