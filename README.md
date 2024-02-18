@@ -16,12 +16,25 @@ A client side mod that adds cool animations to the player.
   - Yes, but most animations from that mod will be overriden
 
 # Planned Features
-- More animations when using different items
-- Configurability / Ability to disable certain animations
-- Better compatibility with mods like Not Enough Animations
-- Forge Support
+
+- More animations when using different items 
+- Better compatibility with other mods
 
 # Known Issues
-- Animations sometimes freeze on servers with large amounts of players
-- Player arms can sometimes look disconnected in certain situations
 
+- Animations sometimes freeze on servers with large amounts of players 
+- Player arms can sometimes look disconnected in certain situations 
+- Cape and elytra appear disconnected from player at times
+
+
+
+Links
+-----
+
+[Issues](https://github.com/McVader34/Serious-Player-Animations/issues)
+
+[Source](https://github.com/McVader34/Serious-Player-Animations)
+
+[Discord](https://discord.gg/Z6jJFxZAUS)
+
+[Modrinth](https://modrinth.com/mod/serious-player-animations)

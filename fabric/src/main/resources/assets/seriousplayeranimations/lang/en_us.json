@@ -1,0 +1,130 @@
+{
+  "text.autoconfig.seriousplayeranimations.title" : "Serious Player Animations",
+
+  "text.autoconfig.seriousplayeranimations.option.client.animationSpeedMultiplier" : "Global Animation Speed Multiplier",
+  "text.autoconfig.seriousplayeranimations.option.client.animationSpeedMultiplier.@Tooltip" : "Changes the animation speed multiplier for all animations",
+
+  "text.autoconfig.seriousplayeranimations.option.client.idleStanding" : "Idle Standing",
+  "text.autoconfig.seriousplayeranimations.option.client.idleStanding.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.idleStanding.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.walking" : "Walking",
+  "text.autoconfig.seriousplayeranimations.option.client.walking.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.walking.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.walkingBackwards" : "Walking Backwards",
+  "text.autoconfig.seriousplayeranimations.option.client.walkingBackwards.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.walkingBackwards.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.running" : "Running",
+  "text.autoconfig.seriousplayeranimations.option.client.running.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.running.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.turningStanding" : "Standing and Turning",
+  "text.autoconfig.seriousplayeranimations.option.client.turningStanding.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.turningStanding.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.idleSneaking" : "Idle Sneaking",
+  "text.autoconfig.seriousplayeranimations.option.client.idleSneaking.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.idleSneaking.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.walkingSneak" : "Sneaking and Walking",
+  "text.autoconfig.seriousplayeranimations.option.client.walkingSneak.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.walkingSneak.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.walkingSneakBackwards" : "Sneaking and Walking Backwards",
+  "text.autoconfig.seriousplayeranimations.option.client.walkingSneakBackwards.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.walkingSneakBackwards.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.idleCreativeFlying" : "Idle Creative Flying",
+  "text.autoconfig.seriousplayeranimations.option.client.idleCreativeFlying.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.idleCreativeFlying.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.falling" : "Falling",
+  "text.autoconfig.seriousplayeranimations.option.client.falling.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.falling.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.idleCrawling" : "Idle Crawling",
+  "text.autoconfig.seriousplayeranimations.option.client.idleCrawling.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.idleCrawling.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.crawling" : "Crawling Forward",
+  "text.autoconfig.seriousplayeranimations.option.client.crawling.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.crawling.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.crawlingBackwards" : "Crawling Backwards",
+  "text.autoconfig.seriousplayeranimations.option.client.crawlingBackwards.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.crawlingBackwards.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.climbing" : "Climbing",
+  "text.autoconfig.seriousplayeranimations.option.client.climbing.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.climbing.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.forwardInWater" : "Swimming Forward",
+  "text.autoconfig.seriousplayeranimations.option.client.forwardInWater.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.forwardInWater.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.backwardsInWater" : "Swimming Backwards",
+  "text.autoconfig.seriousplayeranimations.option.client.backwardsInWater.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.backwardsInWater.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.upInWater" : "Swimming Up",
+  "text.autoconfig.seriousplayeranimations.option.client.upInWater.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.upInWater.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.idleInWater" : "Swimming Idle",
+  "text.autoconfig.seriousplayeranimations.option.client.idleInWater.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.idleInWater.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.swimming" : "Sprint Swimming",
+  "text.autoconfig.seriousplayeranimations.option.client.swimming.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.swimming.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.minecartIdle" : "Minecart",
+  "text.autoconfig.seriousplayeranimations.option.client.minecartIdle.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.minecartIdle.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.horseIdle" : "Sitting/Riding",
+  "text.autoconfig.seriousplayeranimations.option.client.horseIdle.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.horseIdle.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.horseRunning" : "On Running HorseEntity",
+  "text.autoconfig.seriousplayeranimations.option.client.horseRunning.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.horseRunning.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.boat" : "Boat/Raft",
+  "text.autoconfig.seriousplayeranimations.option.client.boat.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.boat.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.elytra" : "Elytra Flying",
+  "text.autoconfig.seriousplayeranimations.option.client.elytra.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.elytra.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.swordAttack" : "Sword Attack",
+  "text.autoconfig.seriousplayeranimations.option.client.swordAttack.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.swordAttack.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.bow" : "Bow",
+  "text.autoconfig.seriousplayeranimations.option.client.bow.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.bow.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.pickaxe" : "Pickaxe",
+  "text.autoconfig.seriousplayeranimations.option.client.pickaxe.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.pickaxe.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.axe" : "Axe",
+  "text.autoconfig.seriousplayeranimations.option.client.axe.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.axe.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.shovel" : "Shovel",
+  "text.autoconfig.seriousplayeranimations.option.client.shovel.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.shovel.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.sleeping" : "Sleeping",
+  "text.autoconfig.seriousplayeranimations.option.client.sleeping.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.sleeping.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.eating" : "Eating",
+  "text.autoconfig.seriousplayeranimations.option.client.eating.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.eating.speedMultiplier" : "Speed Multiplier"
+}

@@ -1,0 +1,42 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+issueTrackerURL = "https://github.com/McVader34/Serious-Player-Animations/issues"
+license = "MIT"
+
+[[mods]]
+modId = "seriousplayeranimations"
+version = "${version}"
+displayName = "Serious Player Animations"
+authors = "McVader"
+description = '''
+This mod adds cool animations to the player.
+'''
+logoFile = "icon.png"
+
+[[dependencies.seriousplayeranimations]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.seriousplayeranimations]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.seriousplayeranimations]]
+modId="playeranimator"
+mandatory=true
+versionRange="[1,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.seriousplayeranimations]]
+modId="cloth_config"
+mandatory=true
+versionRange="[11.0.0,)"
+ordering="AFTER"
+side="BOTH"

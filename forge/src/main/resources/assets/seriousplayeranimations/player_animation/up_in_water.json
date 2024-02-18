@@ -1,0 +1,47 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"up_in_water": {
+			"loop": true,
+			"animation_length": 1.25,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"vector": [10.10362, -1.61888, 7.67583]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"vector": [7.64892, 1.72794, -10.14892]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": {
+							"vector": [20, 0, 0]
+						},
+						"0.625": {
+							"vector": [-25, 0, 0]
+						},
+						"1.25": {
+							"vector": [20, 0, 0]
+						}
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": {
+							"vector": [-27.5, 0, 0]
+						},
+						"0.625": {
+							"vector": [27.5, 0, 0]
+						},
+						"1.25": {
+							"vector": [-27.5, 0, 0]
+						}
+					}
+				}
+			}
+		}
+	}
+}
