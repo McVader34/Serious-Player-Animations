@@ -1,3 +1,23 @@
+# Change Log V1.1.0
+
+Feb. 18, 2024
+
+## New Features:
+- Forge is now supported
+- Added config for eating animation
+- Added paraglider animation for [Paragliders](https://www.curseforge.com/minecraft/mc-mods/paragliders) mod
+- Added work in progress axe and shovel animations (can be disabled in config)
+
+## Bug fixes:
+- #18 [Forge version](https://github.com/McVader34/Serious-Player-Animations/issues/18)
+- #17 [No animation when placing blocks from offhand](https://github.com/McVader34/Serious-Player-Animations/issues/17)
+- #16 [Breaking animation with pickaxe is played when placing blocks from offhand](https://github.com/McVader34/Serious-Player-Animations/issues/16)
+- #15 [No crossbow pulling animation](https://github.com/McVader34/Serious-Player-Animations/issues/15)
+- #14 [No config for eating animation](https://github.com/McVader34/Serious-Player-Animations/issues/14)
+- #10 [Add compatibility with paragliders](https://github.com/McVader34/Serious-Player-Animations/issues/10)
+
+___
+
 # Change Log V1.0.2
 
 Feb. 5, 2024
