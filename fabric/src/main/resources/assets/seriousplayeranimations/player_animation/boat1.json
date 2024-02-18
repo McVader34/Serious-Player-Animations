@@ -1,0 +1,56 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"boat1": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"head": {
+					"position": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"torso": {
+					"rotation": {
+						"vector": [0, 0, 0]
+					},
+					"position": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"vector": [-25.33761, -9.05478, 4.26175]
+					},
+					"position": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"vector": [-20.07031, 4.69776, -1.71394]
+					},
+					"position": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"vector": [-77.29431, 22.47741, 1.03509]
+					},
+					"position": {
+						"vector": [0, 0, 1]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"vector": [-79.74194, -24.97457, -1.16524]
+					},
+					"position": {
+						"vector": [0, 0, 1]
+					}
+				}
+			}
+		}
+	}
+}
