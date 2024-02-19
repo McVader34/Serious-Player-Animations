@@ -38,3 +38,5 @@ Links
 [Discord](https://discord.gg/Z6jJFxZAUS)
 
 [Modrinth](https://modrinth.com/mod/serious-player-animations)
+
+[Curseforge](https://www.curseforge.com/minecraft/mc-mods/serious-player-animations)
