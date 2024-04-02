@@ -13,7 +13,11 @@ A client side mod that adds cool animations to the player.
 - Can I use Eating Animations?
   - Also Yes
 - What about Not Enough Animations?
-  - Yes, but most animations from that mod will be overriden
+  - Yes, as of version 1.1.1 animations should work
+
+# What if I want to make my own animations?
+- This mod supports resource packs and animations that are compatible with player animator / emotecraft
+- See the template resource pack [here](https://github.com/McVader34/Serious-Player-Animations-Template-Resource-Pack)
 
 # Planned Features
 
@@ -22,9 +26,8 @@ A client side mod that adds cool animations to the player.
 
 # Known Issues
 
-- Animations sometimes freeze on servers with large amounts of players 
-- Player arms can sometimes look disconnected in certain situations 
-- Cape and elytra appear disconnected from player at times
+- Is incompatible with many mods' custom animations
+- Report compatibility issues [here](https://github.com/McVader34/Serious-Player-Animations/issues)
 
 
 
