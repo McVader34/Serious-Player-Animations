@@ -126,5 +126,13 @@
 
   "text.autoconfig.seriousplayeranimations.option.client.eating" : "Eating",
   "text.autoconfig.seriousplayeranimations.option.client.eating.enabled" : "Enabled",
-  "text.autoconfig.seriousplayeranimations.option.client.eating.speedMultiplier" : "Speed Multiplier"
+  "text.autoconfig.seriousplayeranimations.option.client.eating.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.shield" : "Shield",
+  "text.autoconfig.seriousplayeranimations.option.client.shield.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.shield.speedMultiplier" : "Speed Multiplier",
+
+  "text.autoconfig.seriousplayeranimations.option.client.trident" : "Trident",
+  "text.autoconfig.seriousplayeranimations.option.client.trident.enabled" : "Enabled",
+  "text.autoconfig.seriousplayeranimations.option.client.trident.speedMultiplier" : "Speed Multiplier"
 }
