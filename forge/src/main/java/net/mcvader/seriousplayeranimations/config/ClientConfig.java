@@ -13,6 +13,14 @@ public class ClientConfig implements ConfigData {
     public float animationSpeedMultiplier = 1;
 
     @ConfigEntry.Category(value = "Animations")
+
+    /*@ConfigEntry.Gui.CollapsibleObject
+    public TestConfig test = new TestConfig();
+    public TestConfig getTest() {
+        return test;
+    }*/
+
+
     @ConfigEntry.Gui.CollapsibleObject
     public AnimationConfig idleStanding = new AnimationConfig();
     public AnimationConfig getIdleStanding() {
@@ -171,9 +179,7 @@ public class ClientConfig implements ConfigData {
 
     @ConfigEntry.Gui.CollapsibleObject
     public AnimationConfig pickaxe = new AnimationConfig();
-    public AnimationConfig getPickaxe() {
-        return pickaxe;
-    }
+    public AnimationConfig getPickaxe() {return pickaxe;}
 
     @ConfigEntry.Gui.CollapsibleObject
     public AnimationConfig axe = new AnimationConfig();
@@ -199,9 +205,32 @@ public class ClientConfig implements ConfigData {
         return eating;
     }
 
+    @ConfigEntry.Gui.CollapsibleObject
+    public AnimationConfig shield = new AnimationConfig();
+    public AnimationConfig getShield() {
+        return shield;
+    }
+
+    @ConfigEntry.Gui.CollapsibleObject
+    public AnimationConfig trident = new AnimationConfig();
+    public AnimationConfig getTrident() {
+        return trident;
+    }
+
+
+
     public static class AnimationConfig {
         public boolean enabled = true;
         public float speedMultiplier = 1;
+    }
+
+    public static class TestConfig {
+        public float x = 0;
+        public float y = 0;
+        public float z = 0;
+        public float pitch = 0;
+        public float yaw = 0;
+        public float roll = 0;
     }
 
 }

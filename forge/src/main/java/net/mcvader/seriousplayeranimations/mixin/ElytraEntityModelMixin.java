@@ -16,7 +16,8 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ElytraEntityModel.class)
 public abstract class ElytraEntityModelMixin <T extends LivingEntity>  extends AnimalModel<T> implements torsoPosGetter {
-
+    float prevY = 0;
+    float prevZ = 0;
 
     @Shadow @Final private ModelPart rightWing;
 
@@ -29,6 +30,8 @@ public abstract class ElytraEntityModelMixin <T extends LivingEntity>  extends A
     @Shadow protected abstract Iterable<ModelPart> getBodyParts();
 
     @Shadow protected abstract Iterable<ModelPart> getHeadParts();
+
+
 
 
 
@@ -73,16 +76,21 @@ public abstract class ElytraEntityModelMixin <T extends LivingEntity>  extends A
             abstractClientPlayerEntity.elytraYaw += (n - abstractClientPlayerEntity.elytraYaw) * 0.1F;
             abstractClientPlayerEntity.elytraRoll += (l - abstractClientPlayerEntity.elytraRoll) * 0.1F;
 
-            Vec3f Pos = Vec3f.ZERO;
 
-            if (abstractClientPlayerEntity instanceof torsoPosGetter) {
-                Pos = ((torsoPosGetter) abstractClientPlayerEntity).getTorsoPos();
-            }
+
+            Vec3f Pos = ((torsoPosGetter) abstractClientPlayerEntity).getTorsoPos();
+
 
 
             if (!Pos.getY().isNaN()) {
                 m = Pos.getY();
                 pivZ = Pos.getZ();
+
+                prevY = Pos.getY();
+                prevZ = Pos.getZ();
+            } else {
+                m = prevY;
+                pivZ = prevZ;
             }
 
 
