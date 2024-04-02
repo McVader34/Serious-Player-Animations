@@ -3,11 +3,28 @@
   "minVersion": "0.8",
   "package": "net.mcvader.seriousplayeranimations.mixin",
   "compatibilityLevel": "JAVA_17",
+  "plugin": "net.mcvader.seriousplayeranimations.mixin.SeriousPlayerAnimationsMixinPlugin",
   "mixins": [
+    "CapeRenderMixin",
+    "NEA.fullbody.NEACrawlingMixin",
+    "NEA.fullbody.NEAFallingMixin",
+    "NEA.fullbody.NEAFreezingMixin",
+    "NEA.fullbody.NEALadderMixin",
+    "NEA.hands.NEABoatMixin",
+    "NEA.hands.NEACustomBowMixin",
+    "NEA.hands.NEAEatDrinkMixin",
+    "NEA.hands.NEAHorseMixin",
+    "NEA.hands.NEAHugMixin",
+    "NEA.hands.NEAItemSwapMixin",
+    "NEA.hands.NEALookAtItemMixin",
+    "NEA.hands.NEAMapHoldingMixin",
+    "NEA.hands.NEANarutoRunningMixin",
+    "NEA.hands.NEAPetMixin"
   ],
   "client": [
-    "SeriousPlayerAnimationsMixin",
-    "ElytraEntityModelMixin"
+    "ElytraEntityModelMixin",
+    "PlayerEntityRendererMixin",
+    "SeriousPlayerAnimationsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

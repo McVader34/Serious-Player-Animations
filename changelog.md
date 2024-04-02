@@ -1,5 +1,43 @@
 # Change Log V1.1.0
 
+Apr. 1, 2024 
+
+## New Features:
+- Added Shield Overlay
+- Added Trident Holding Overly
+- Trident now uses sword animation for attacking
+- Added better compatibility with Not Enough Animations 
+  - Some of Serious Player Animation's animations need to be disabled to see Not Enough Animations'
+- Added compatibility with Carry On mod
+- Added compatibility with Immersive Melodies
+- Added compatibility with Supplementaries
+- Added compatibility with gun mods
+  - Most of Ultracraft's gun holding animations
+  - Any gun mod that uses vanilla crossbow holding animation(ISSUE: This feature does not work consistently on forge version)
+  - If a specific mod isn't working properly report it on [GitHub](https://github.com/McVader34/Serious-Player-Animations/issues)
+- Added compatibility with sword blocking mods
+  - Sword Blocking Mechanics
+  - Sword Blocking
+  - Old Combat Mod
+- Capes should now stay connected to player (still buggy in some circumstances)
+
+## Bug fixes:
+- #37 [Immersive Melodies Compat](https://github.com/McVader34/Serious-Player-Animations/issues/37)
+- #34 [Problem With The Configs](https://github.com/McVader34/Serious-Player-Animations/issues/34)
+- #33 [Disabling mining animations doesn't revert to vanilla animation](https://github.com/McVader34/Serious-Player-Animations/issues/33)
+- #32 [Simply Swords Compat](https://github.com/McVader34/Serious-Player-Animations/issues/32)
+- #31 [Config issues](https://github.com/McVader34/Serious-Player-Animations/issues/31)
+- #28 [shield glitch](https://github.com/McVader34/Serious-Player-Animations/issues/28)
+- #25 [Sword Blocking Mechanics compatibility](https://github.com/McVader34/Serious-Player-Animations/issues/25)
+- #24 [Shield blocking animations reset the opposite arm](https://github.com/McVader34/Serious-Player-Animations/issues/24)
+- #22 [compat with supplementaries](https://github.com/McVader34/Serious-Player-Animations/issues/22)
+- #20 [Compatibility with carry on](https://github.com/McVader34/Serious-Player-Animations/issues/20)
+- #5 [Cape appears disconnected.](https://github.com/McVader34/Serious-Player-Animations/issues/5)
+
+---
+
+# Change Log V1.1.0
+
 Feb. 18, 2024
 
 ## New Features:

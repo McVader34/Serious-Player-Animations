@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"trident": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"vector": [-53.95534, -31.81666, -38.48998]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"vector": [-172.4439, -48.03857, -30.1797]
+					},
+					"position": {
+						"vector": [0, 1, 0]
+					}
+				}
+			}
+		}
+	}
+}

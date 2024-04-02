@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[40,)"
 issueTrackerURL = "https://github.com/McVader34/Serious-Player-Animations/issues"
 license = "MIT"
 
@@ -16,7 +16,7 @@ logoFile = "icon.png"
 [[dependencies.seriousplayeranimations]]
 modId = "forge"
 mandatory = true
-versionRange = "[47,)"
+versionRange = "[40,)"
 ordering = "NONE"
 side = "BOTH"
 
@@ -37,6 +37,6 @@ side="BOTH"
 [[dependencies.seriousplayeranimations]]
 modId="cloth_config"
 mandatory=true
-versionRange="[11.0.0,)"
+versionRange="[8.0.0,)"
 ordering="AFTER"
 side="BOTH"

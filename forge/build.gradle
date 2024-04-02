@@ -26,6 +26,16 @@ repositories {
     maven { url 'https://maven.shedaniel.me/' }
     maven { url 'https://maven.kosmx.dev/' }
     maven { url 'https://jitpack.io' }
+    maven { url "https://cursemaven.com" }
+    maven {
+        url "https://maven.blamejared.com/"
+    }
+    maven { url 'https://api.modrinth.com/maven' }
+    maven { url "https://maven.terraformersmc.com/releases/" }
+    maven { url "https://maven.blamejared.com/" }
+    maven {url 'https://libs.azuredoom.com:4443/mods'}
+
+
 }
 
 dependencies {
@@ -39,6 +49,32 @@ dependencies {
     modImplementation("dev.kosmx.player-anim:player-animation-lib-forge:${project.player_anim}")
     // modImplementation(files("../fabric/run/mods/dev/player-animation-lib-forge-${project.player_anim_version}.jar"))
     modApi("me.shedaniel.cloth:cloth-config-forge:${project.cloth_config_version}")
+
+
+    modCompileOnly("tschipp.carryon:carryon-forge-1.20.1:2.1.2.7" )
+
+    modCompileOnly("maven.modrinth:not-enough-animations:1.7.1-forge,1.20.4")
+
+    modCompileOnly("maven.modrinth:immersive-melodies:0.1.0+1.20.1-forge,1.20.1")
+
+    modCompileOnly("maven.modrinth:sword-blocking:1.3.1-fabric,1.20.1") { transitive false }
+
+    modCompileOnly("maven.modrinth:oldcombatmod:0.1.2+1.20.4-fabric,1.20.4") { transitive false }
+
+    modCompileOnly("maven.modrinth:trigger-happy:1.0.4-fabric,1.20.1") { transitive false }
+
+    modCompileOnly("maven.modrinth:supplementaries:1.20-2.8.7-forge,1.20.1")
+
+    modCompileOnly("mod.azure.azurelib:azurelib-fabric-1.20.4:2.1.6") { transitive false }
+
+    modCompileOnly("curse.maven:ewewukeks-musket-mod-354562:5138146")
+
+    modCompileOnly("curse.maven:absolute-ultracraft-861094:4920081")
+
+    modCompileOnly("curse.maven:happiness-is-a-warm-gun-448106:5195355")
+
+    modCompileOnly("curse.maven:fabric-simple-animated-guns-664917:4746617")
+
 
 }
 

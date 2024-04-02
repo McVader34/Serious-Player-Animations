@@ -12,11 +12,16 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+
+import java.lang.annotation.Target;
 
 
 @Mixin(ElytraEntityModel.class)
 public abstract class ElytraEntityModelMixin <T extends LivingEntity>  extends AnimalModel<T> implements torsoPosGetter {
-
+    float prevY = 0;
+    float prevZ = 0;
 
     @Shadow @Final private ModelPart rightWing;
 
@@ -29,6 +34,8 @@ public abstract class ElytraEntityModelMixin <T extends LivingEntity>  extends A
     @Shadow protected abstract Iterable<ModelPart> getBodyParts();
 
     @Shadow protected abstract Iterable<ModelPart> getHeadParts();
+
+
 
 
 
@@ -78,6 +85,12 @@ public abstract class ElytraEntityModelMixin <T extends LivingEntity>  extends A
             if (!Pos.getY().isNaN()) {
                 m = Pos.getY();
                 pivZ = Pos.getZ();
+
+                prevY = Pos.getY();
+                prevZ = Pos.getZ();
+            } else {
+                m = prevY;
+                pivZ = prevZ;
             }
 
 
