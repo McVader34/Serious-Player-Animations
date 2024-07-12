@@ -75,7 +75,9 @@ dependencies {
 
     modCompileOnly("curse.maven:fabric-simple-animated-guns-664917:4746617")
 
+    modCompileOnly("com.github.MCModderAnchor:TACZ:1.0.1")
 
+    modCompileOnly("curse.maven:vics-point-blank-961053:5518356")
 }
 
 processResources {
