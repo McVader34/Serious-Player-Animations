@@ -7,7 +7,7 @@ license = "MIT"
 modId = "seriousplayeranimations"
 version = "${version}"
 displayName = "Serious Player Animations"
-authors = "McVader"
+authors = "McVader, RazorPlay"
 description = '''
 This mod adds cool animations to the player.
 '''

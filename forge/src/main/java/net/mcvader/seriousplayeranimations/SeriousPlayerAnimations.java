@@ -12,8 +12,6 @@ import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-
 @Mod(SeriousPlayerAnimations.MOD_ID)
 public class SeriousPlayerAnimations  {
 	public static final String MOD_ID = "seriousplayeranimations";
@@ -27,6 +25,8 @@ public class SeriousPlayerAnimations  {
 	public static boolean SWORDBLOCKING_COMPAT;
 	public static boolean OLDCOMBATMOD_COMPAT;
 	public static boolean TRIGGERHAPPY_COMPAT;
+	public static boolean TAC_COMPAT;
+	public static boolean VICS_POINT_BLACK_COMPAT;
 
 	public SeriousPlayerAnimations() {
 		LOGGER.info("Loading up some Serious Animations.");
@@ -48,8 +48,7 @@ public class SeriousPlayerAnimations  {
 		SWORDBLOCKING_COMPAT = ModList.get().isLoaded("swordblocking");
 		OLDCOMBATMOD_COMPAT = ModList.get().isLoaded("oldcombatmod");
 		TRIGGERHAPPY_COMPAT = ModList.get().isLoaded("triggerhappy");
-
-
-
+		TAC_COMPAT = ModList.get().isLoaded("tacz");
+		VICS_POINT_BLACK_COMPAT = ModList.get().isLoaded("pointblank");
 	}
 }

@@ -1515,6 +1515,12 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
                     disableArms = true;
                 }
             }
+            if (TAC_COMPAT && TACCheck.check(item)) {
+                disableArms = true;
+            }
+            if (VICS_POINT_BLACK_COMPAT && VICSCheck.check(item)) {
+                disableArms = true;
+            }
 
             /*if(ULTRACRAFT_COMPAT) {
                 if (UltracraftCheck.isGenericGun(item)) {
