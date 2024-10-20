@@ -23,6 +23,9 @@ import net.minecraft.block.*;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.world.ClientWorld;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.FoodComponent;
+import net.minecraft.component.type.FoodComponents;
 import net.minecraft.entity.mob.SkeletonHorseEntity;
 import net.minecraft.entity.mob.ZombieHorseEntity;
 import net.minecraft.entity.passive.DonkeyEntity;
@@ -49,6 +52,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import tschipp.carryon.common.carry.CarryOnData;
 import tschipp.carryon.common.carry.CarryOnDataManager;
+import net.minecraft.component.type.FoodComponent;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -164,62 +168,63 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
 
     
     public void reloadAnimationVariables() {
-        sword_attack = getAnimation(new Identifier(MOD_ID, "sword_attack"));
-        sword_attack2 = getAnimation(new Identifier(MOD_ID, "sword_attack2"));
-        idle_standing = getAnimation(new Identifier(MOD_ID, "idle_standing"));
-        idle_creative_flying = getAnimation(new Identifier(MOD_ID, "idle_creative_flying"));
-        idle_creative_flying_item = getAnimation(new Identifier(MOD_ID, "idle_creative_flying_item"));
-        walking = getAnimation(new Identifier(MOD_ID, "walking"));
-        walking_backwards = getAnimation(new Identifier(MOD_ID, "walking_backwards"));
-        running = getAnimation(new Identifier(MOD_ID, "running"));
-        turn_left = getAnimation(new Identifier(MOD_ID, "turn_left"));
-        turn_right = getAnimation(new Identifier(MOD_ID, "turn_right"));
-        idle_sneak = getAnimation(new Identifier(MOD_ID, "idle_sneak"));
-        walking_sneak = getAnimation(new Identifier(MOD_ID, "walking_sneak"));
-        walking_sneak_backwards = getAnimation(new Identifier(MOD_ID, "walking_sneak_backwards"));
-        sword_attack_sneak = getAnimation(new Identifier(MOD_ID, "sword_attack_sneak"));
-        sword_attack_sneak2 = getAnimation(new Identifier(MOD_ID, "sword_attack_sneak2"));
-        falling = getAnimation(new Identifier(MOD_ID, "falling"));
-        blank_loop = getAnimation(new Identifier(MOD_ID, "blank_loop"));
-        elytra = getAnimation(new Identifier(MOD_ID, "elytra"));
-        eating_right = getAnimation(new Identifier(MOD_ID, "eating_right"));
-        eating_left = getAnimation(new Identifier(MOD_ID, "eating_left"));
-        eating_right_sneak = getAnimation(new Identifier(MOD_ID, "eating_right_sneak"));
-        eating_left_sneak = getAnimation(new Identifier(MOD_ID, "eating_left_sneak"));
-        idle_in_water = getAnimation(new Identifier(MOD_ID, "idle_in_water"));
-        forward_in_water = getAnimation(new Identifier(MOD_ID, "forward_in_water"));
-        backwards_in_water = getAnimation(new Identifier(MOD_ID, "backwards_in_water"));
-        up_in_water = getAnimation(new Identifier(MOD_ID, "up_in_water"));
-        swimming = getAnimation(new Identifier(MOD_ID, "swimming"));
-        crawling = getAnimation(new Identifier(MOD_ID, "crawling"));
-        idle_crawling = getAnimation(new Identifier(MOD_ID, "idle_crawling"));
-        crawling_backwards = getAnimation(new Identifier(MOD_ID, "crawling_backwards"));
-        climbing = getAnimation(new Identifier(MOD_ID, "climbing"));
-        climbing_sneak = getAnimation(new Identifier(MOD_ID, "climbing_sneak"));
-        idle_climbing = getAnimation(new Identifier(MOD_ID, "idle_climbing"));
-        idle_climbing_sneak = getAnimation(new Identifier(MOD_ID, "idle_climbing_sneak"));
-        climbing_backwards = getAnimation(new Identifier(MOD_ID, "climbing_backwards"));
-        pickaxe = getAnimation(new Identifier(MOD_ID, "pickaxe"));
-        pickaxe_sneak = getAnimation(new Identifier(MOD_ID, "pickaxe_sneak"));
-        minecart_idle = getAnimation(new Identifier(MOD_ID, "minecart_idle"));
-        minecart_pickaxe = getAnimation(new Identifier(MOD_ID, "minecart_pickaxe"));
-        horse_idle = getAnimation(new Identifier(MOD_ID, "horse_idle"));
-        horse_running = getAnimation(new Identifier(MOD_ID, "horse_running"));
-        horse_pickaxe = getAnimation(new Identifier(MOD_ID, "horse_pickaxe"));
-        boat1 = getAnimation(new Identifier(MOD_ID, "boat1"));
-        eating = getAnimation(new Identifier(MOD_ID, "eating"));
-        bow_idle = getAnimation(new Identifier(MOD_ID, "bow_idle"));
-        bow_sneak = getAnimation(new Identifier(MOD_ID, "bow_sneak"));
-        sleeping = getAnimation(new Identifier(MOD_ID, "sleeping"));
-        axe = getAnimation(new Identifier(MOD_ID, "axe"));
-        axe_sneak = getAnimation(new Identifier(MOD_ID, "axe_sneak"));
-        shovel = getAnimation(new Identifier(MOD_ID, "shovel"));
-        shovel_sneak = getAnimation(new Identifier(MOD_ID, "shovel_sneak"));
-        paraglider = getAnimation(new Identifier(MOD_ID, "paraglider"));
-        generic_handswing = getAnimation(new Identifier(MOD_ID, "generic_handswing"));
-        shield = getAnimation(new Identifier(MOD_ID, "shield"));
-        shield_sneak = getAnimation(new Identifier(MOD_ID, "shield_sneak"));
-        trident = getAnimation(new Identifier(MOD_ID, "trident"));
+        sword_attack = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "sword_attack"));
+        sword_attack2 = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "sword_attack2"));
+        idle_standing = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "idle_standing"));
+        idle_creative_flying = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "idle_creative_flying"));
+        idle_creative_flying_item = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "idle_creative_flying_item"));
+        walking = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "walking"));
+
+        walking_backwards = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "walking_backwards"));
+        running = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "running"));
+        turn_left = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "turn_left"));
+        turn_right = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "turn_right"));
+        idle_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "idle_sneak"));
+        walking_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "walking_sneak"));
+        walking_sneak_backwards = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "walking_sneak_backwards"));
+        sword_attack_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "sword_attack_sneak"));
+        sword_attack_sneak2 = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "sword_attack_sneak2"));
+        falling = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "falling"));
+        blank_loop = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "blank_loop"));
+        elytra = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "elytra"));
+        eating_right = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "eating_right"));
+        eating_left = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "eating_left"));
+        eating_right_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "eating_right_sneak"));
+        eating_left_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "eating_left_sneak"));
+        idle_in_water = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "idle_in_water"));
+        forward_in_water = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "forward_in_water"));
+        backwards_in_water = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "backwards_in_water"));
+        up_in_water = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "up_in_water"));
+        swimming = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "swimming"));
+        crawling = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "crawling"));
+        idle_crawling = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "idle_crawling"));
+        crawling_backwards = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "crawling_backwards"));
+        climbing = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "climbing"));
+        climbing_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "climbing_sneak"));
+        idle_climbing = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "idle_climbing"));
+        idle_climbing_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "idle_climbing_sneak"));
+        climbing_backwards = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "climbing_backwards"));
+        pickaxe = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "pickaxe"));
+        pickaxe_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "pickaxe_sneak"));
+        minecart_idle = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "minecart_idle"));
+        minecart_pickaxe = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "minecart_pickaxe"));
+        horse_idle = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "horse_idle"));
+        horse_running = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "horse_running"));
+        horse_pickaxe = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "horse_pickaxe"));
+        boat1 = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "boat1"));
+        eating = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "eating"));
+        bow_idle = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "bow_idle"));
+        bow_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "bow_sneak"));
+        sleeping = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "sleeping"));
+        axe = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "axe"));
+        axe_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "axe_sneak"));
+        shovel = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "shovel"));
+        shovel_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "shovel_sneak"));
+        paraglider = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "paraglider"));
+        generic_handswing = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "generic_handswing"));
+        shield = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "shield"));
+        shield_sneak = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "shield_sneak"));
+        trident = (KeyframeAnimation) getAnimation(Identifier.of(MOD_ID, "trident"));
 
 
     }
@@ -1236,7 +1241,7 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
 
         if (isUsingItem()) {
             activeItem = getActiveItem().getItem();
-            if (activeItem.isFood()) {
+            if (activeItem.getComponents().contains(DataComponentTypes.FOOD)) {
                 //eating
 
 
@@ -1471,7 +1476,7 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
         if (!getMainHandStack().isEmpty()) {
             item = getMainHandStack().getItem();
 
-            if (PARAGLIDER_COMPAT) {
+            /*if (PARAGLIDER_COMPAT) {
                 if (getMainHandStack().hasNbt()) {
                     if (Objects.requireNonNull(getMainHandStack().getNbt()).contains("Paragliding")) {
                         if (Objects.requireNonNull(getMainHandStack().getNbt()).getBoolean("Paragliding")) {
@@ -1489,7 +1494,7 @@ public abstract class SeriousPlayerAnimationsMixin extends PlayerEntity implemen
                     }
 
                 }
-            }
+            }*/
 
             if (SWORDBLOCKING_COMPAT) {
                 if (SwordBlockingCheck.check(this)) {

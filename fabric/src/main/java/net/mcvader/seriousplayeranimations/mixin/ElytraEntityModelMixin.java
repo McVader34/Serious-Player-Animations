@@ -104,8 +104,8 @@ public abstract class ElytraEntityModelMixin <T extends LivingEntity>  extends A
             this.leftWing.roll = l;
             this.leftWing.yaw = n;
         }
-        this.leftWing.pivotY = m;
-        this.leftWing.pivotZ = pivZ;
+        this.leftWing.pivotY = (float) (m*.1);
+        this.leftWing.pivotZ = (float) (pivZ*.1);
 
         this.rightWing.yaw = -this.leftWing.yaw;
         this.rightWing.pivotY = this.leftWing.pivotY;
