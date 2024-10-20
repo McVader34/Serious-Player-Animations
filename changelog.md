@@ -1,3 +1,20 @@
+# Change Log V1.2.0 Alpha
+
+Oct. 20, 2024
+
+## New Features:
+- Updated to 1.21.1
+
+## Important Notes
+- This is NOT a full release. Expect many bugs and compatibility issues.
+- Don't expect frequent updates.
+- Fabric only at the moment.
+
+## Known Issues
+- Cape and elytra disconect from body when using blockbench animations.
+
+---
+
 # Change Log V1.1.1
 
 Apr. 1, 2024 
