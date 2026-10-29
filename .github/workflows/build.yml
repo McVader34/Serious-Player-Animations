@@ -26,11 +26,13 @@ jobs:
           java-version: "21"
           distribution: "temurin"
 
-      - name: Set up Gradle
+      - name: Set up Gradle 8.14.3
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.14.3"
 
-      - name: Build with the repository's Gradle wrapper
-        run: bash gradlew build --no-daemon --stacktrace
+      - name: Build with Gradle
+        run: gradle build --no-daemon --stacktrace
 
       - name: Upload the remapped mod JAR
         uses: actions/upload-artifact@v4
