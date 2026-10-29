@@ -10,6 +10,15 @@ repositories {
     maven { url "https://maven.terraformersmc.com/releases/" }
 }
 
+sourceSets {
+    main {
+        java {
+            // Optional integrations from older game releases are not part of this build.
+            exclude "net/mcvader/seriousplayeranimations/compat/**"
+        }
+    }
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
@@ -37,6 +46,11 @@ processResources {
     exclude "assets/seriousplayeranimations/player_animation/sword_attack_sneak2.json"
     exclude "assets/seriousplayeranimations/player_animation/shield.json"
     exclude "assets/seriousplayeranimations/player_animation/shield_sneak.json"
+    exclude "assets/seriousplayeranimations/player_animation/bow_idle.json"
+    exclude "assets/seriousplayeranimations/player_animation/bow_sneak.json"
+    exclude "assets/seriousplayeranimations/player_animation/axe.json"
+    exclude "assets/seriousplayeranimations/player_animation/axe_sneak.json"
+    exclude "assets/seriousplayeranimations/player_animation/trident.json"
 }
 
 remapJar {

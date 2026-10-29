@@ -166,26 +166,8 @@ public class ClientConfig implements ConfigData {
     }
 
     @ConfigEntry.Gui.CollapsibleObject
-    public AnimationConfig swordAttack = new AnimationConfig();
-    public AnimationConfig getSwordAttack() {
-        return swordAttack;
-    }
-
-    @ConfigEntry.Gui.CollapsibleObject
-    public AnimationConfig bow = new AnimationConfig();
-    public AnimationConfig getBow() {
-        return bow;
-    }
-
-    @ConfigEntry.Gui.CollapsibleObject
     public AnimationConfig pickaxe = new AnimationConfig();
     public AnimationConfig getPickaxe() {return pickaxe;}
-
-    @ConfigEntry.Gui.CollapsibleObject
-    public AnimationConfig axe = new AnimationConfig();
-    public AnimationConfig getAxe() {
-        return axe;
-    }
 
     @ConfigEntry.Gui.CollapsibleObject
     public AnimationConfig shovel = new AnimationConfig();
@@ -203,18 +185,6 @@ public class ClientConfig implements ConfigData {
     public AnimationConfig eating = new AnimationConfig();
     public AnimationConfig getEating() {
         return eating;
-    }
-
-    @ConfigEntry.Gui.CollapsibleObject
-    public AnimationConfig shield = new AnimationConfig();
-    public AnimationConfig getShield() {
-        return shield;
-    }
-
-    @ConfigEntry.Gui.CollapsibleObject
-    public AnimationConfig trident = new AnimationConfig();
-    public AnimationConfig getTrident() {
-        return trident;
     }
 
 
