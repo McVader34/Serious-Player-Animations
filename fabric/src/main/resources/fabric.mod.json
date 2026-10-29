@@ -27,12 +27,12 @@
     "seriousplayeranimations.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.0",
+    "fabricloader": ">=0.19.3",
     "fabric": "*",
-    "minecraft": ">=1.21.11",
+    "minecraft": "1.21.11",
     "java": ">=21",
     "player-animator": ">=2.0.0",
-    "cloth-config": ">=15.0.0"
+    "cloth-config": ">=21.11.0"
   },
   "custom": {
     "loom:injected_interfaces": {
