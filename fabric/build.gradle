@@ -1,29 +1,11 @@
-plugins {
-    id "com.github.johnrengelman.shadow" version "8.1.1"
-}
-
 architectury {
     platformSetupLoomIde()
     fabric()
 }
 
-configurations {
-    common
-    shadowCommon
-    compileClasspath.extendsFrom common
-    runtimeClasspath.extendsFrom common
-    developmentFabric.extendsFrom common
-}
-
 repositories {
-    maven {
-        name "KosmX's maven"
-        url 'https://maven.kosmx.dev/'
-    }
-    maven {
-        name = "Modrinth"
-        url = "https://api.modrinth.com/maven"
-    }
+    maven { name "KosmX's maven"; url 'https://maven.kosmx.dev/' }
+    maven { name = "Modrinth"; url = "https://api.modrinth.com/maven" }
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://maven.terraformersmc.com/releases/" }
 }
@@ -32,8 +14,8 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+    // Modern Loom automatically bundles the common project, no Shadow plugin needed!
+    modImplementation project(path: ":common", configuration: "namedElements")
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:${project.player_anim}")
@@ -52,16 +34,8 @@ processResources {
     }
 }
 
-shadowJar {
-    exclude "architectury.common.json"
-    configurations = [project.configurations.shadowCommon]
-    archiveClassifier = "dev-shadow"
-}
-
 remapJar {
     injectAccessWidener = true
-    inputFile.set(shadowJar.archiveFile)
-    dependsOn shadowJar
 }
 
 sourcesJar {
