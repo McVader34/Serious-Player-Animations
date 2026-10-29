@@ -25,7 +25,7 @@ jobs:
           cache-disabled: true
 
       - name: Build with Gradle
-        run: gradle build --no-daemon --no-build-cache --refresh-dependencies
+        run: gradle build --no-daemon
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
