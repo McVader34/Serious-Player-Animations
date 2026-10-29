@@ -9,7 +9,11 @@ architectury {
 
 subprojects {
     apply plugin: "dev.architectury.loom"
-    archivesBaseName = rootProject.archives_base_name
+    apply plugin: "base"
+
+    base {
+        archivesName = rootProject.archives_base_name
+    }
     version = rootProject.mod_version
 
     loom {
