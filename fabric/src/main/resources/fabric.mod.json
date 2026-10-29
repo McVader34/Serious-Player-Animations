@@ -31,7 +31,7 @@
     "fabric": "*",
     "minecraft": ">=1.21.11",
     "java": ">=21",
-    "player-animator": ">=1.1.6",
+    "player-animator": ">=2.0.0",
     "cloth-config": ">=15.0.0"
   },
   "custom": {
