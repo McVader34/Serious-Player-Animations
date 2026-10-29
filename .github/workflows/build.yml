@@ -2,8 +2,16 @@ name: Build Mod
 
 on:
   push:
-    branches: [ "1.2.0-Alpha", "main", "master" ]
+    branches:
+      - "1.2.0-Alpha"
+      - "main"
+      - "master"
+      - "MAIN-1.1.1"
+      - "port-1.21.11-working-build"
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -15,20 +23,22 @@ jobs:
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
-          distribution: 'temurin'
+          java-version: "21"
+          distribution: "temurin"
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: '8.10.2'
-          cache-disabled: true
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
 
-      - name: Build with Gradle
-        run: gradle build --no-daemon
+      - name: Build with the repository's Gradle wrapper
+        run: bash gradlew build --no-daemon --stacktrace
 
-      - name: Upload Build Artifacts
+      - name: Upload the remapped mod JAR
         uses: actions/upload-artifact@v4
         with:
           name: Serious-Player-Animations-1.21.11
-          path: fabric/build/libs/*.jar
+          path: |
+            fabric/build/libs/*.jar
+            !fabric/build/libs/*-sources.jar
+            !fabric/build/libs/*-dev.jar
+          if-no-files-found: error
+          retention-days: 14
