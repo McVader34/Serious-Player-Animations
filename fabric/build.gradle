@@ -14,15 +14,13 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 
-    modImplementation project(path: ":common", configuration: "namedElements")
-
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:${project.player_anim}")
-    
+
     modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
-    
+
     modCompileOnly("com.terraformersmc:modmenu:${project.mod_menu_version}") { transitive false }
 }
 
@@ -31,14 +29,16 @@ processResources {
     filesMatching("fabric.mod.json") {
         expand "version": project.version
     }
+
+    // This port intentionally excludes combat and weapon-blocking animations.
+    exclude "assets/seriousplayeranimations/player_animation/sword_attack.json"
+    exclude "assets/seriousplayeranimations/player_animation/sword_attack2.json"
+    exclude "assets/seriousplayeranimations/player_animation/sword_attack_sneak.json"
+    exclude "assets/seriousplayeranimations/player_animation/sword_attack_sneak2.json"
+    exclude "assets/seriousplayeranimations/player_animation/shield.json"
+    exclude "assets/seriousplayeranimations/player_animation/shield_sneak.json"
 }
 
 remapJar {
     injectAccessWidener = true
-}
-
-sourcesJar {
-    def commonSources = project(":common").sourcesJar
-    dependsOn commonSources
-    from commonSources.archiveFile.map { zipTree(it) }
 }
