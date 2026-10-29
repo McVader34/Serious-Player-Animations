@@ -1,6 +1,6 @@
 plugins {
-    id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "1.17.+" apply false
+    id "architectury-plugin" version "3.4.164"
+    id "dev.architectury.loom" version "1.14.+" apply false
 }
 
 architectury {
@@ -9,7 +9,6 @@ architectury {
 
 subprojects {
     apply plugin: "dev.architectury.loom"
-    
     version = rootProject.mod_version
 
     loom {
