@@ -60,11 +60,12 @@ shadowJar {
 
 remapJar {
     injectAccessWidener = true
-    input.set shadowJar.archiveFile
+    inputFile.set(shadowJar.archiveFile)
     dependsOn shadowJar
 }
 
 sourcesJar {
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources
-    from common
+    from commonSources.archiveFile.map { zipTree(it) }
+}
